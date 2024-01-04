@@ -26,7 +26,7 @@ start_time = time.time()
 uri = f'postgresql://{user}:{password}@{host}:{port}/{db}'
 
 # Export to CSV
-file_path = r'C:\Users\Mkuli\OneDrive\Documents\test_adbc.csv'
+file_path = r'C:\Users\Mkuli\OneDrive\Documents\File dumps\test_adbc.csv'
 
 df=pl.read_database_uri(query=query, uri=uri, engine="adbc")
 

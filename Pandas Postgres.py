@@ -27,7 +27,7 @@ start_time = time.time()
 df = pd.read_sql(query, engine)
 
 # Export to CSV
-file_path = r'C:\Users\Mkuli\OneDrive\Documents\test_pandas.csv'
+file_path = r'C:\Users\Mkuli\OneDrive\Documents\File dumps\test_pandas.csv'
 df.to_csv(file_path)
 
 # End the timer

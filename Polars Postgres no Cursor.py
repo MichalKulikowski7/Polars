@@ -16,8 +16,7 @@ db = config['DATABASE']['DatabaseName']
 
 # Create SQLAlchemy engine
 engine = al.create_engine(f'postgresql://{user}:{password}@{host}:{port}/{db}')
-count_rows="select count (*) FROM public.sales_data"
-print(count_rows)
+
 
 # SQL query
 query = "SELECT * FROM public.sales_data"
