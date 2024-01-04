@@ -6,7 +6,7 @@ import configparser
 #####
 # Initialize the config parser and read the config file
 config = configparser.ConfigParser()
-config.read('C:\\Users\\Mkuli\\OneDrive\\Documents\\MyCode\\config.ini')
+config.read('C:\\Users\\Mkuli\\OneDrive\\Documents\\MyCode\\Polars\\config.ini')
 # Database credentials
 # Retrieve the database credentials from the config file
 user = config['DATABASE']['User']
@@ -24,7 +24,7 @@ conn = psycopg2.connect(
 )
 
 cursor = conn.cursor()
-query = "SELECT * FROM public.sales_data where date='2019-01-01'"
+query = "SELECT * FROM public.sales_data"
 cursor.execute(query)
 
 rows = cursor.fetchall()

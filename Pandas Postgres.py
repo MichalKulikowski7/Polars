@@ -5,7 +5,7 @@ import time
 
 # Initialize the config parser and read the config file
 config = configparser.ConfigParser()
-config.read('C:\\Users\\Mkuli\\OneDrive\\Documents\\MyCode\\config.ini')
+config.read('C:\\Users\\Mkuli\\OneDrive\\Documents\\MyCode\\Polars\\config.ini')
 
 # Database credentials
 user = config['DATABASE']['User']
