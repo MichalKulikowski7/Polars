@@ -28,7 +28,7 @@ start_time = time.time()
 df = pl.read_database(query, engine)
 
 # Export to CSV
-file_path = r'C:\Users\Mkuli\OneDrive\Documents\test.csv'
+file_path = r'C:\Users\Mkuli\OneDrive\Documents\Files Repo\test.csv'
 df.write_csv(file_path)
 
 # End the timer

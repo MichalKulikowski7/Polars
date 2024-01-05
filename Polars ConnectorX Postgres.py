@@ -25,7 +25,7 @@ start_time = time.time()
 df = cx.read_sql(conn_str, query, return_type="polars")
 end_time_read = time.time()
 # Export to CSV
-file_path = r'C:\Users\Mkuli\OneDrive\Documents\test_connectorx.csv'
+file_path = r'C:\Users\Mkuli\OneDrive\Documents\Files Repo\test_connectorx.csv'
 
 df.write_csv(file_path)
 end_time = time.time()

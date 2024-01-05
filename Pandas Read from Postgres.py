@@ -2,6 +2,8 @@ import pandas as pd
 import sqlalchemy as al
 import configparser
 import time
+from pandas import option_context
+
 
 # Initialize the config parser and read the config file
 config = configparser.ConfigParser()
@@ -24,10 +26,12 @@ query = "SELECT * FROM public.sales_data"
 start_time = time.time()
 
 # Directly load data into a Pandas DataFrame using read_sql
+
+
 df = pd.read_sql(query, engine)
 
 # Export to CSV
-file_path = r'C:\Users\Mkuli\OneDrive\Documents\File dumps\test_pandas.csv'
+file_path = r'C:\Users\Mkuli\OneDrive\Documents\Files Repo\test_pandas.csv'
 df.to_csv(file_path)
 
 # End the timer
