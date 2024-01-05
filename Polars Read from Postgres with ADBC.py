@@ -1,4 +1,4 @@
-import connectorx as cx
+#import connectorx as cx
 import configparser
 import polars as pl
 import time
@@ -16,7 +16,7 @@ db = config['DATABASE']['DatabaseName']
 #conn_str = f"postgresql://{user}:{password}@{host}:{port}/{db}"
 
 # SQL query
-query = "SELECT * FROM public.sales_data"
+query = "SELECT * FROM public.sales_data limit 50000000"
 
 # Start the timer
 start_time = time.time()
@@ -26,18 +26,20 @@ start_time = time.time()
 uri = f'postgresql://{user}:{password}@{host}:{port}/{db}'
 
 # Export to CSV
-file_path = r'C:\Users\Mkuli\OneDrive\Documents\Files Repo\test_adbc.csv'
+# file_path = r'C:\Users\Mkuli\OneDrive\Documents\Files Repo\test_adbc.csv'
 
 df=pl.read_database_uri(query=query, uri=uri, engine="adbc")
 
 end_time_read = time.time()
 
-df.write_csv(file_path)
-# End the timer
-end_time = time.time()
+print(df.dtypes)
+print(df.describe)
+
+
 
 # Calculate the load duration #
 duration_read = end_time_read - start_time
-# Calculate the total duration
-duration_total = end_time - start_time
-print(f"The query and data loading took {duration_read} seconds with ConnectorX (ADBC) and total duration was {duration_total}.")
+
+print(f"The query and data loading took {duration_read} seconds with ConnectorX (ADBC)")
+
+# Recorded time is 86 sec

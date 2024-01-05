@@ -2,10 +2,8 @@ import pandas as pd
 import sqlalchemy as al
 import configparser
 import time
-from pandas import option_context
 
-
-# Initialize the config parser and read the config file
+# Init the config parser and read the config file
 config = configparser.ConfigParser()
 config.read('C:\\Users\\Mkuli\\OneDrive\\Documents\\MyCode\\Polars\\config.ini')
 
@@ -20,23 +18,19 @@ db = config['DATABASE']['DatabaseName']
 engine = al.create_engine(f'postgresql://{user}:{password}@{host}:{port}/{db}')
 
 # SQL query
-query = "SELECT * FROM public.sales_data"
+query = "SELECT * FROM public.sales_data limit 50000000"
+
 
 # Start the timer
 start_time = time.time()
 
 # Directly load data into a Pandas DataFrame using read_sql
-
-
 df = pd.read_sql(query, engine)
-
-# Export to CSV
-file_path = r'C:\Users\Mkuli\OneDrive\Documents\Files Repo\test_pandas.csv'
-df.to_csv(file_path)
 
 # End the timer
 end_time = time.time()
-
+print(df.dtypes)
+print(df.describe)
 # Calculate the duration
 duration = end_time - start_time
 print(f"The query and data loading took {duration} seconds with Pandas.")
