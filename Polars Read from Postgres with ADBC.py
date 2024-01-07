@@ -1,4 +1,3 @@
-#import connectorx as cx
 import configparser
 import polars as pl
 import time
@@ -16,7 +15,7 @@ db = config['DATABASE']['DatabaseName']
 #conn_str = f"postgresql://{user}:{password}@{host}:{port}/{db}"
 
 # SQL query
-query = "SELECT * FROM public.sales_data limit 50000000"
+query = "SELECT * FROM public.sales_data"
 
 # Start the timer
 start_time = time.time()
